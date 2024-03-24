@@ -1,0 +1,5 @@
+package main
+
+interface IC extends IA
+    func mIC
+end

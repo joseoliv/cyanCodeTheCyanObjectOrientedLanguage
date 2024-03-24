@@ -1,0 +1,13 @@
+package main
+
+@init(value)
+object InitBug
+  var Int value
+end
+
+
+/*
+  override
+  func asString -> String = "$value";
+*/
+

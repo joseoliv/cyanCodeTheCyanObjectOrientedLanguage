@@ -1,0 +1,16 @@
+package other
+
+// remove // before 'extends' and 'override' to 
+// produce a compilation error
+open
+object SubProto // extends main.SuperProto 
+    // override
+    func m: Int n { "SubProto::m called" println }
+
+    func pub {
+        m: 0
+    }
+end
+
+
+

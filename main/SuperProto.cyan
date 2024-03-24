@@ -1,0 +1,12 @@
+package main
+
+open
+object SuperProto 
+    package
+    func m: Int n { "SuperProto::m called" println }
+    
+    //let Int mmm = 0;
+    shared
+    func mmm { }
+    
+end

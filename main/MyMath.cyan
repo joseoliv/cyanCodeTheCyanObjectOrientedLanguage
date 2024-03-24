@@ -1,0 +1,22 @@
+package main
+
+object MyMath
+
+  @onMessageSend_afterSemAn{*
+    func afterSemAn_checkKeywordMessageSend {
+      var expr = (message getkeywordParameterList
+                   get: 0) getExprList get: 0;
+      var p = expr getValue;
+      if p > 12 || p < 0 {
+        metaobject addError: "Error: " ++
+           "Number $p too big or too low";
+      }
+    }
+  *}
+  func fat: Int n -> Int {
+    return [ 1, 1, 2, 6, 24, 
+      120, 720, 5040, 40320, 362880, 3628800, 
+      39916800, 479001600 ] [n];
+  }
+
+end

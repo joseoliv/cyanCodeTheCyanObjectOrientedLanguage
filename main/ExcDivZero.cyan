@@ -1,0 +1,4 @@
+package main
+
+object ExcDivZero extends CyException
+end

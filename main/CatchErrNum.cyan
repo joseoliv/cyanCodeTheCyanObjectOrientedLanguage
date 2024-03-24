@@ -1,0 +1,13 @@
+package main
+
+object CatchErrNum
+  overload
+  func eval: ExcDivZero e {
+     "Division by 0" println
+  }
+  func eval: ExcNegNumber e {
+     Out println: ("Illegal negative"
+       ++ " number: "
+       ++ (e getNumber));
+  }
+end

@@ -1,0 +1,5 @@
+package main
+
+interface IA
+    func top: Int n -> Int
+end

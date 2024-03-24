@@ -1,0 +1,7 @@
+package main
+
+open
+object A implements IA
+    override
+    func top: Int n -> Int = n;
+end

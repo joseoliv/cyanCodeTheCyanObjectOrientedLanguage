@@ -1,0 +1,16 @@
+package main
+
+object InitTest
+  @property
+  var Int value = 0;
+  @property
+  var String msg = "";
+  func init: Int value { self.value = value }
+  func run {
+    var p = InitTest;
+    p getValue println;
+    InitTest getValue println;
+    "run InitTest" println;
+  }
+end
+

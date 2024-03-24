@@ -1,0 +1,20 @@
+package main
+
+object Intersection
+
+    func run {
+        var IB & IC ibc;
+        ibc = BC();
+        var BC  bc;
+        
+        ibc = interTest: BC();
+        //var A a = interTest: A();
+        //a = interTest: A();
+    }
+    
+    func interTest: IB & IC p -> IB & IC {
+        Out println: (p top: 0);
+        return BC();
+    }
+    
+end

@@ -1,0 +1,155 @@
+package main
+
+object CatchTest
+    func run {
+        runFunc;        
+        
+        var Int share;
+        var Int value = 100;
+        var excThrown = true;
+        share = 0;
+        for num in -1..1 {
+            var divZero = num == 0;
+            var negNumber = num < 0;
+            {
+              if num == 0 {
+                throw: ExcDivZero
+              }
+              if num < 0 {
+                throw: ExcNegNumber(num)
+              }
+              share = value/num;
+              excThrown = false;
+            }
+            catch: { (: ExcDivZero e :)
+               "Division by 0" println;
+               assert divZero;
+               }
+            catch: { (: ExcNegNumber e :)
+               Out println: ("Illegal negative" 
+                 ++ " number: " 
+                 ++ (e getNumber));
+               assert negNumber;
+            }
+            finally: {
+                if !excThrown {
+                    "no exception, num = $num" println;
+                    assert !divZero && !negNumber;
+                }
+            };
+        }
+        "test with CatchErrNum:" println;
+        for num in -1..1 {
+            var divZero = num == 0;
+            var negNumber = num < 0;
+            excThrown = true;            
+            {
+              if num == 0 {
+                throw: ExcDivZero
+              }
+              if num < 0 {
+                throw: ExcNegNumber(num)
+              }
+              share = value/num;
+              excThrown = false;
+            }
+            catch: CatchErrNum;
+        }
+        "test with CatchErrNumUn:" println;
+        for num in -1..1 {
+            var divZero = num == 0;
+            var negNumber = num < 0;
+            excThrown = true;            
+            {
+              if num == 0 {
+                throw: ExcDivZero
+              }
+              if num < 0 {
+                throw: ExcNegNumber(num)
+              }
+              share = value/num;
+              excThrown = false;
+            }
+            catch: CatchErrNumUn;
+        }
+    }
+    
+    func runFunc {
+        |"""
+           |Now with the parameteless function in a variable
+           |and the finally block too
+        """
+          println;
+        var Int share;
+        var Int value = 100;
+        var excThrown = false;
+        share = 0;
+        var Int num = 0;
+        var Boolean divZero = false;
+        var Boolean negNumber = false;
+        let calcShare = {
+              //"At begin of calcShare, excThrown = $excThrown" println;
+              if num == 0 {
+                throw: ExcDivZero
+              }
+              if num < 0 {
+                throw: ExcNegNumber(num)
+              }
+              share = value/num;
+              excThrown = false;
+              //"At end of calcShare, excThrown = $excThrown" println;
+            };
+        let finallyFunction = {
+            //"At begin of finallyFunction, excThrown = $excThrown" println;
+            if !excThrown {
+                "no exception, num = $num" println;
+                assert !divZero && !negNumber;
+            }
+        };
+        num = -1;
+        while num <= 1 {
+            divZero = num == 0;
+            negNumber = num < 0;
+            excThrown = true;            
+            calcShare
+            catch: { (: ExcDivZero e :)
+               "Division by 0" println;
+               assert divZero;
+               }
+            catch: { (: ExcNegNumber e :)
+               Out println: ("Illegal negative"
+                 ++ " number: "
+                 ++ (e getNumber));
+               assert negNumber;
+            }
+            finally: finallyFunction;
+            ++num;
+        }
+        "test with CatchErrNum:" println;
+        num = -1;
+        while num <= 1 {
+            divZero = num == 0;
+            negNumber = num < 0;
+            excThrown = true;
+            calcShare
+            catch: CatchErrNum
+            finally: finallyFunction;
+            ++num;
+        }
+        "test with CatchErrNumUn:" println;
+        num = -1;
+        while num <= 1 {
+            divZero = num == 0;
+            negNumber = num < 0;
+            excThrown = true;
+            //printexpr num;
+            calcShare
+            catch: CatchErrNumUn
+            finally: finallyFunction;
+            ++num;
+            //printexpr excThrown;
+        }
+    }
+
+    
+end

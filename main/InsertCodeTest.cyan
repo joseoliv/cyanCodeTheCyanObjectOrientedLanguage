@@ -1,0 +1,21 @@
+package main
+
+object InsertCodeTest
+
+  @insertCode{*
+    var Int n = 0;
+    for elem in [ "red", "green", 
+       "blue" ] {
+      var String s = "func $elem "
+       ++ "-> Int; ";
+      insert: s, 
+        "func $elem -> Int = $n;";
+      n = n + 1
+    }
+  *}
+
+  func run {
+    assert red == 0 &&
+      green == 1 && blue == 2;
+  }
+end

@@ -1,0 +1,6 @@
+package main
+
+object BC extends A implements IBC
+    override
+    func mIBC { }
+end

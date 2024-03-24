@@ -1,0 +1,16 @@
+package main
+
+object CatchErrNumUn
+  func eval: ExcDivZero|ExcNegNumber e {
+    type e 
+      case ExcDivZero ne {
+        "Division by 0" println
+      }
+      case ExcNegNumber ne {
+        Out println: (
+          "Illegal negative"
+          ++ " number: "
+          ++ (ne getNumber));
+      }
+  }
+end

@@ -1,0 +1,4 @@
+package main
+
+interface IB extends IA
+end

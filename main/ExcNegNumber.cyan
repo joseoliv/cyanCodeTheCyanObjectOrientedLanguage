@@ -1,0 +1,4 @@
+package main
+
+object ExcNegNumber(@property Int number) extends CyException
+end

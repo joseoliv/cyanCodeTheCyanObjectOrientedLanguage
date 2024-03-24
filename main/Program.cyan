@@ -1,0 +1,83 @@
+package main
+
+object Program
+
+    func run {
+        InitTest run;
+        unionTest;
+        other.SubProto pub;
+        System exit;
+        var Any a;
+        a = InitBug(5) prototype;
+        a println;  
+    
+        MetaprogTest run;
+        InsertCodeTest run; 
+        @callTestMethods;
+        var Box<Int> bi;
+        bi = Box<Int>(5);
+        //( bi < Box<Int>(9) ) println;
+        //var bp = Box<Program>(self);
+        //CatchTest run;
+    }
+    
+    func gradualTypingTest {
+        "calling gradualTypingTest" println;
+        var Dyn dyn = 0;
+        var ar = [ 'a', 'b', 'c' ];
+        var k = ar at: (dyn*2 pred succ);
+        k = ar at: dyn*2; 
+
+        typeof(ar) prototypeName println;            
+        dyn prototypeName println;            
+        (dyn*2) prototypeName println;            
+        (dyn*2 pred) prototypeName println;            
+        (dyn*2 pred succ) prototypeName println;            
+        (k prototypeName) println;
+        (ar prototypeName) println;
+        assert (dyn*2) prototypeName == "Int";
+        assert (dyn*2) pred prototypeName == "Int";
+        assert (dyn*2) pred succ prototypeName == "Int";
+        assert k prototypeName == "Char";
+        assert ar prototypeName == "Array<Char>";
+    }
+    
+    func insertCodeTest {
+        //(self getMethodNameList) foreach: Println<String>;
+    }
+
+    func unionTest {
+        
+        var Int|(String|Char) isc;
+        isc = 0;
+        var aisc = Array<Int|(String|Char)>();
+        aisc add: 0;
+        aisc add: "1";
+        aisc add: '2';
+        for elem in aisc {
+            type elem
+                case Char x   { "Char $x" println }
+                case String x { "String $x" println }
+                case Int x    { "Int $x" println }
+        }
+        
+        
+        
+        var Int|Any|Dyn x;
+          // Since 2.0 is also a Any, 'case Dyn d' will
+          // not be used (see below)
+        var Dyn dyn = 2.0;
+        var Any any = "1.0";
+        var array = Array<Int|Any|Dyn>();
+        array add: 0;
+        array add: any;
+        array add: dyn;
+        for elem in array {
+            type elem
+                case Int i { "Int $i" println }
+                case Any a { "Any $a" println }
+                case Dyn d { "Dyn $d" println }
+        }
+    }    
+    
+end

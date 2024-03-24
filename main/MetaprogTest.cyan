@@ -1,0 +1,29 @@
+package main
+
+@onSubprototype{*
+  var String s = subPrototype getName;
+  if s substring: 0, 4 != "Meta" {
+    metaobject addError: 
+      "Subprototypes of MetaprogTest as $s "
+      ++ "should have names starting "
+      ++ "with 'Meta'";
+      
+  }
+*}
+open
+object MetaprogTest
+
+    func run {
+        @insertCode{*
+            var String s = metaobject getAnnotation getCurrentMethod getName;
+            //"Current method = " print;
+            //s println;
+            
+        *}
+        (MyMath fat: 4) println;
+        // error if uncommented
+        //(MyMath fat: 15) println;
+        "end MetaprogTest" println;
+    }
+
+end

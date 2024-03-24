@@ -1,0 +1,9 @@
+package main
+
+open
+object SubProtoMain extends SuperProto 
+
+    //shared let Int mmm = 0;
+    
+    //shared func mmm { }
+end
