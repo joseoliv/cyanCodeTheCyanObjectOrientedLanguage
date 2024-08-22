@@ -1,0 +1,10 @@
+package main
+
+object Planet
+    func init: String name, Double mass {
+        self.name = name;
+        self.mass = mass
+    }
+    @property var String name
+    @property var Double mass
+end

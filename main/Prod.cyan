@@ -1,0 +1,11 @@
+package main
+
+object Prod(Int &product)
+       extends Function<Int, Nil>
+       
+  override
+  func eval: Int x {
+    product = product * x;
+  }
+  
+end

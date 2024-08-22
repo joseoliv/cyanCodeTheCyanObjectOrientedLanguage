@@ -1,0 +1,12 @@
+package main
+
+object DynTypingTest
+    func from: n 
+         str:  s {
+         var k;
+         k = n + 1;
+         return s substring: k
+         
+    }
+
+end

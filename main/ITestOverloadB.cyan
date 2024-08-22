@@ -1,0 +1,5 @@
+package main
+
+interface ITestOverloadB 
+    func process: String x
+end

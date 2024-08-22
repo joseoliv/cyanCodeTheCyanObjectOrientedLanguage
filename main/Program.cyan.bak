@@ -24,10 +24,6 @@ object Program
         
         Program insertCodeTest;
         
-        var Tuple<Int, String, Char> t = [. 0, "zero", '0' .];
-        printexpr t f1;
-        printexpr t f2;
-        printexpr t f3;
     }
     
     func gradualTypingTest {

@@ -1,0 +1,7 @@
+package main
+
+
+
+object Proto_IB__ implements IB
+
+end

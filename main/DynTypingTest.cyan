@@ -1,0 +1,13 @@
+package main
+
+object DynTypingTest
+    func from: n 
+         str:  s -> Dyn {
+         var k;
+         k = n + 1;
+         "before return s = '$s'  k = '$k'" println;
+         return s substring: k
+         
+    }
+
+end

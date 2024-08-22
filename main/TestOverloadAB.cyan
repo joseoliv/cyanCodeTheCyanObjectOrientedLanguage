@@ -1,0 +1,13 @@
+package main
+
+object TestOverloadAB  
+    // error if uncommented
+    /*
+    implements ITestOverloadA, ITestOverloadB
+    override
+    overload
+    func process: Int x { }
+    override
+    func process: String y { } 
+    */
+end

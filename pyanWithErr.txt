@@ -1,0 +1,4 @@
+program at "C:\Dropbox\research\myArticles\23-2\The Cyan Language - Computer Languages\cyanCode"
+
+    package main at "C:\Dropbox\research\myArticles\23-2\The Cyan Language - Computer Languages\cyanCode\main"
+    package other at "C:\Dropbox\research\myArticles\23-2\The Cyan Language - Computer Languages\cyanCode\other"

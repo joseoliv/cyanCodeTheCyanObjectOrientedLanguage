@@ -1,0 +1,7 @@
+package main
+
+
+
+object Proto_IC__ implements IC
+
+end

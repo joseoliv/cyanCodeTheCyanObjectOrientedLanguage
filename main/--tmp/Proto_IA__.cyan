@@ -1,0 +1,7 @@
+package main
+
+
+
+object Proto_IA__ implements IA
+
+end

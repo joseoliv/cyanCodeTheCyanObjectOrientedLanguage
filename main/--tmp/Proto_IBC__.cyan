@@ -1,0 +1,7 @@
+package main
+
+
+
+object Proto_IBC__ implements IBC
+
+end

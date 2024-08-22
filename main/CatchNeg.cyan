@@ -1,0 +1,5 @@
+package main
+
+object CatchNeg(Int &num)
+  func eval: ExcNegNumber e { num = 0 }
+end

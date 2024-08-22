@@ -1,0 +1,21 @@
+package main
+
+object ContextObjectTest
+
+    func run {
+        var p = 1;
+          // calls Prod passing every array
+          // element as an argument
+        [ 2, 3, 5 ] foreach: Prod(p);
+        assert p == 30;    
+        "context object: p = $p" println;
+        
+        var product = 1;
+        [ 2, 3, 5 ] foreach: { (: Int x :) product = product * x };
+        "product = $product" println;
+        var fact = 1;
+        1..9 foreach: { (: Int x :) fact = fact * x };
+        "9! = $fact" println;
+    }
+  
+end

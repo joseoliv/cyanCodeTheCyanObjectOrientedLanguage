@@ -1,0 +1,11 @@
+package main
+
+object DynTypingAfterTest
+    func from: Int n
+         str:  String s  -> String {
+         var Int k;
+         k = n + 1;
+         return s substring: k
+
+    }
+end
